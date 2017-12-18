@@ -15,4 +15,5 @@ struct Currency {
     let price : Double
     let name: String
     let id: String
+    let currency: String
 }

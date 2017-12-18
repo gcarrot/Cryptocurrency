@@ -105,7 +105,7 @@ class CurrencyList: UITableViewController {
     }
     
     
-    func getJsonData(){
+    public func getJsonData(){
         currencies = [Currency]()
         filteredData = [Currency]()
         
@@ -133,8 +133,9 @@ class CurrencyList: UITableViewController {
                 let priceEl = element["price_\(fiatCurrencyLower)"] as! String
                 let changeEl = element["percent_change_24h"] as! String
                 let idEl = element["id"] as! String
+                let currencyEl = "\(fiatCurrencyLower)"
                 
-                let c = Currency(rank: Int(rankEl)!, symbol: symbolEl, change24: changeEl, price: Double(priceEl)!, name: nameEl, id: idEl)
+                let c = Currency(rank: Int(rankEl)!, symbol: symbolEl, change24: changeEl, price: Double(priceEl)!, name: nameEl, id: idEl, currency: currencyEl)
                 currencies.append(c)
             }
             
