@@ -27,6 +27,7 @@ class SettingsViewController: UIViewController {
         limitSearch = userDefaults.integer(forKey: "limit")
         fiatCurrency = userDefaults.string(forKey: "currency")!
         
+        self.navigationItem.title = "Settings"
         
         if(fiatCurrency == "CNY"){
             cnyBtn.backgroundColor = UIColor.blue
@@ -38,8 +39,9 @@ class SettingsViewController: UIViewController {
             usdBtn.backgroundColor = UIColor.blue
             usdBtn.tintColor = UIColor.white
         }
-        
+        limitTF.text = String(limitSearch)
         limitTF.addTarget(self, action: #selector(changeLimit), for: .editingChanged)
+        
         usdBtn.tag = 1
         usdBtn.addTarget(self, action: #selector(changeCurrency(sender:)), for: UIControlEvents.touchUpInside)
         
